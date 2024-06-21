@@ -10,7 +10,7 @@ Given this problem, I am looking to build a machine learning model that can seek
 
 Predicting the winner of any sporting event is difficult. Given this fact, I realize that my model will be fallible. Instead of looking for perfection, I would like to compare my model's successfulness against the most simple way to pick a winner in a tennis match: choosing whoever is ranked higher. 
 
-Creating a using a model like this could have an impact in the world of sports betting. Thus, for my last part of the project I would like to explore how my model would fare if I were to it's predictions to place bets on those matches.  In the end I hope to build a model that can the simplest predictive method discussed above, and also see how it can compare to real bets on the outcomes of those matches. 
+Creating a model like this could have an impact in the world of sports betting. Thus, for my last part of the project I would like to explore how my model would fare if I were to it's predictions to place bets on those matches.  In the end I hope to build a model that can the simplest predictive method discussed above, and also see how it can compare to real bets on the outcomes of those matches. 
 
 ## Initial EDA (Exploratory Data Analysis)
 
@@ -18,7 +18,7 @@ For this project, I will be using JeffSackmann's tennis_atp repository, which ha
 
 ### Data Dictionary
 
-* Many of the columns are self-explanatory, and so for those I may leave out a description. Other columns that I do not end up using or that were specific to JeffSackmann's repo I will omit.
+* Many of the columns are self-explanatory, and so for those I leave out a description. Other columns that I do not end up using or that were specific to JeffSackmann's repo I will omit.
 
 tourney_id - a unique identifier for each tournament, such as 2020-888. The exact formats are borrowed from several different sources, so while the first four characters are always the year, the rest of the ID doesn't follow a predictable structure.
 
@@ -94,3 +94,7 @@ winner_rank - winner's ATP rank, as of the tourney_date, or the most recent rank
 winner_rank_points - number of ranking points, where available
 loser_rank
 loser_rank_points
+
+---------------------------------
+
+The data is mostly clean with some null values for columns where there was no data available. More information on the data and my initial changes can be found in the main.ipynb file.
