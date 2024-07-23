@@ -1,6 +1,8 @@
-# Project Overview
+### Brief Overview
 
-This project is an aimed at building machine learning models to see just how well I can correctly predict tennis match outcomes on the ATP (men's) tour.  If you would like to follow along with my work please go into the `notebooks/` directory, and then open the `main.ipynb` file.  There you will find code and notations on how I build my models
+This project is aimed at building machine learning models to see just how well I can correctly predict tennis match outcomes on the ATP (men's) tour.  If you would like to follow along with my work please go into the `notebooks/` directory, and then open the `main.ipynb` file.  There you will find code and notations on how I build my models!
+
+# Project Overview
 
 
 ## The Problem Area
@@ -15,15 +17,16 @@ Predicting the winner of any sporting event is difficult. Given this fact, I rea
 
 Creating a model like this could have an impact in the world of sports betting. Thus, for my last part of the project I would like to explore how my model would fare if I were to it's predictions to place bets on those matches.  In the end I hope to build a model that can the simplest predictive method discussed above, and also see how it can compare to real bets on the outcomes of those matches. 
 
-## Initial EDA (Exploratory Data Analysis)
+## Data
 
-For this project, I will be using JeffSackmann's tennis_atp repository, which has all ATP matches starting from 2000. The data provided is fairly clean. The general data information is as follows:
+For this project, I will be using JeffSackmann's tennis_atp repository, which has all ATP matches starting from 1970 to present. The data provided is fairly clean with some missing entries.
 
 ### Data Dictionary
 
-* Many of the columns are self-explanatory, and so for those I leave out a description. Other columns that I do not end up using or that were specific to JeffSackmann's repo I will omit.
+Many of the columns are self-explanatory, and so for those I leave out a description. Other columns that I do not end up using or that were specific to JeffSackmann's repo I will omit.
 
-tourney_id - a unique identifier for each tournament, such as 2020-888. The exact formats are borrowed from several different sources, so while the first four characters are always the year, the rest of the ID doesn't follow a predictable structure.
+
+`tourney_id` - a unique identifier for each tournament, such as 2020-888. The exact formats are borrowed from several different sources, so while the first four characters are always the year, the rest of the ID doesn't follow a predictable structure.
 
 `tourney_name` - tournament name
 
@@ -35,69 +38,50 @@ tourney_id - a unique identifier for each tournament, such as 2020-888. The exac
 
 `tourney_date` - eight digits, YYYYMMDD, tournaments usually start on Monday.
 
-winner_seed
+`winner_seed`
 
-winner_entry - 'WC' = wild card, 'Q' = qualifier, 'LL' = lucky loser, 'PR' = protected ranking, 'ITF' = ITF entry, and there are a few others that are occasionally used.
+`winner_entry` - 'WC' = wild card, 'Q' = qualifier, 'LL' = lucky loser, 'PR' = protected ranking, 'ITF' = ITF entry, and there are a few others that are occasionally used.
+`winner_name`
+`winner_hand` - R = right, L = left, U = unknown. For ambidextrous players, this is their serving hand.
 
-winner_name
+`winner_ht` - height in centimeters, where available
 
-winner_hand - R = right, L = left, U = unknown. For ambidextrous players, this is their serving hand.
+`winner_ioc` - three-character country code
 
-winner_ht - height in centimeters, where available
+`winner_age` - age, in years, as of the tourney_date
 
-winner_ioc - three-character country code
+`loser_id`
 
-winner_age - age, in years, as of the tourney_date
+`loser_seed`
 
-loser_id
+`loser_entry`
 
-loser_seed
+`loser_name`
 
-loser_entry
+`loser_hand`
 
-loser_name
+`loser_ht`
 
-loser_hand
+`loser_ioc`
 
-loser_ht
+`loser_age`
 
-loser_ioc
+`score`
 
-loser_age
+`best_of` - '3' or '5', indicating the the number of sets for this match
 
-score
+`round`
 
-best_of - '3' or '5', indicating the the number of sets for this match
+`minutes` - match length, where available
 
-round
+`winner_rank` - winner's ATP rank, as of the tourney_date, or the most recent ranking date before the tourney_date
 
-minutes - match length, where available
-
-w_ace - winner's number of aces
-w_df - winner's number of doubles faults
-w_svpt - winner's number of serve points
-w_1stIn - winner's number of first serves made
-w_1stWon - winner's number of first-serve points won
-w_2ndWon - winner's number of second-serve points won
-w_SvGms - winner's number of serve games
-w_bpSaved - winner's number of break points saved
-w_bpFaced - winner's number of break points faced
-
-l_ace
-l_df
-l_svpt
-l_1stIn
-l_1stWon
-l_2ndWon
-l_SvGms
-l_bpSaved
-l_bpFaced
-
-winner_rank - winner's ATP rank, as of the tourney_date, or the most recent ranking date before the tourney_date
-winner_rank_points - number of ranking points, where available
-loser_rank
-loser_rank_points
+`loser_rank`
 
 ---------------------------------
 
 The data is mostly clean with some null values for columns where there was no data available. More information on the data and my initial changes can be found in the `main.ipynb` file.
+
+
+### Conclusion
+
